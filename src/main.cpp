@@ -2,8 +2,8 @@
 /**
  * @file main.cpp
  * @brief Embedded Distance Measurement using Ultrasonic Sensor
- * @author YOUR_NAME
- * @date YYYY-MM-DD
+ * @author Mayank
+ * @date 2026-01-29
  *
  * @details
  * Measures distance using HC-SR04 ultrasonic sensor
@@ -23,29 +23,21 @@ void setup() {
     Serial.begin(9600);
     pinMode(trigPin, OUTPUT);
     pinMode(echoPin, INPUT);
+    Serial.println("Ultrasonic Distance Measurement System Initialized");
 
-
-    // TODO 8:
-    // Print system initialization message
 }
 
 void loop() {
 
-    // TODO 9:
-    // Set TRIG LOW for 2 microseconds
-
-    // TODO 10:
-    // Send 10 microsecond pulse on TRIG
-
-    // TODO 11:
-    // Measure pulse duration on ECHO using pulseIn()
-
-    // TODO 12:
-    // Calculate distance in cm
-
-    // TODO 13:
-    // Print calculated distance
-
-    // TODO 14:
-    // Add delay (500ms)
+    digitalWrite(trigPin, LOW);
+    delayMicroseconds(2);
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin, LOW);
+    duration = pulseIn(echoPin, HIGH);
+    distance = duration * 0.034 / 2;
+    Serial.print("Distance: ");
+    Serial.print(distance);
+    Serial.println(" cm");
+    delay(500);
 }
