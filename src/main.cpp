@@ -22,10 +22,8 @@ void setup() {
 
     Serial.begin(9600);
     pinMode(trigPin, OUTPUT);
+    pinMode(echoPin, INPUT);
 
-
-    // TODO 7:
-    // Configure ECHO as INPUT
 
     // TODO 8:
     // Print system initialization message
